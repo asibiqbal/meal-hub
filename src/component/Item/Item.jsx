@@ -16,24 +16,35 @@ const Item = ({fetchMeals}) => {
     }
     const getOrder = () => {
         setCount([]);
-      toast.success("Order Confirmed!");
+      toast.success("Order Confirmed! 🎉");
     }
 
     return (
-        <div className="meals-main-container">
-            <div className="meals-container">
-            {
-                meals.map(meals =>
-                <Meals getCount ={getCount} key={meals.idMeal} meals={meals}></Meals>)
-            }
+        <div className="item-wrapper">
+            <div className="meals-main-container">
+                <div className="meals-container">
+                {
+                    meals.map(meals =>
+                    <Meals getCount ={getCount} key={meals.idMeal} meals={meals}></Meals>)
+                }
+                </div>
+                <div className="count-container">
+                    <Count count={count}></Count>
+                    <button onClick={() => getOrder()} className="meals-btn order-btn">Order Items</button>
+                </div>
             </div>
-            <div className="count-container">
-                <Count count={count}></Count>
-                <button onClick={() => getOrder()} className="meals-btn">Order Items</button>
-            </div>
-            <ToastContainer />
+            <ToastContainer 
+                position="bottom-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={true}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
-        
     );
 };
 
