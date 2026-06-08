@@ -14,7 +14,9 @@ function App() {
     <>
       <Navbar></Navbar>
       <Suspense fallback={<p>Loading Meal Items....</p>}>
-        <Item fetchMeals={fetchMeals} ></Item>
+        <Item fetchMeals={fetchMeals}
+        
+        ></Item>
       </Suspense>
     </>
   )
